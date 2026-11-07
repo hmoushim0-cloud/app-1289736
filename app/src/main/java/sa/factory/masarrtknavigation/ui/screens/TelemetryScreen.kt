@@ -36,7 +36,8 @@ fun TelemetryScreen(state: MasarRtkUiState) {
                         Text(state.telemetry?.status ?: "ONLINE", color = Color.Black, fontWeight = FontWeight.Bold, modifier = Modifier.padding(4.dp))
                     }
                 }
-                Text("اسم العتاد: ${state.telemetry?.peripheralName ?: 'GPS RTK High-Precision Receiver + Gyroscope'}", fontWeight = FontWeight.Bold, color = BrandTextPrimary, fontSize = 14.sp)
+                val fallbackPeripheral = "GPS RTK High-Precision Receiver + Gyroscope"
+                Text("اسم العتاد: ${state.telemetry?.peripheralName ?: fallbackPeripheral}", fontWeight = FontWeight.Bold, color = BrandTextPrimary, fontSize = 14.sp)
                 Text("جودة الإشارة: ${state.telemetry?.signalDbm ?: -58} dBm  •  البطارية: ${state.telemetry?.batteryPct ?: 98}%", color = BrandSecondary, fontSize = 12.sp)
                 
                 Divider(color = BrandCard)
@@ -64,9 +65,9 @@ fun TelemetryScreen(state: MasarRtkUiState) {
         ) {
             Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 Text("معايير الامتثال والحوكمة", fontWeight = FontWeight.Bold, color = BrandTextPrimary, fontSize = 14.sp)
-                Text("✓ تشفير كامل للاتصال الطرفي (AES-256 GCM)", color = BrandTextSecondary, fontSize = 12.sp)
-                Text("✓ مطابقة اشتراطات هيئة الاتصالات والفضاء والتقنية", color = BrandTextSecondary, fontSize = 12.sp)
-                Text("✓ مزامنة فورية خالية من الإيموجي ومتوافقة مع المعايير السعودية", color = BrandTextSecondary, fontSize = 12.sp)
+                Text("• تشفير كامل للاتصال الطرفي (AES-256 GCM)", color = BrandTextSecondary, fontSize = 12.sp)
+                Text("• مطابقة اشتراطات هيئة الاتصالات والفضاء والتقنية", color = BrandTextSecondary, fontSize = 12.sp)
+                Text("• مزامنة فورية خالية من الإيموجي ومتوافقة مع المعايير السعودية", color = BrandTextSecondary, fontSize = 12.sp)
             }
         }
     }

@@ -52,7 +52,8 @@ fun HomeScreen(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Column(modifier = Modifier.weight(1f)) {
-                    Text("العتاد الحي: ${state.telemetry?.peripheralName ?: 'GPS RTK High-Precision Receiver + Gyroscope'}", fontWeight = FontWeight.Bold, color = BrandPrimary, fontSize = 13.sp)
+                    val fallbackPeripheral = "GPS RTK High-Precision Receiver + Gyroscope"
+                    Text("العتاد الحي: ${state.telemetry?.peripheralName ?: fallbackPeripheral}", fontWeight = FontWeight.Bold, color = BrandPrimary, fontSize = 13.sp)
                     Text(state.telemetry?.liveReading ?: "GPS RTK High-Precision Receiver + Gyroscope: ONLINE | READY", fontSize = 11.sp, color = BrandTextSecondary)
                 }
                 Badge(containerColor = BrandPrimary) {
